@@ -1,0 +1,22 @@
+#
+# @lc app=leetcode.cn id=167 lang=python3
+#
+# [167] 两数之和 II - 输入有序数组
+#
+
+# @lc code=start
+class Solution:
+    def twoSum(self, numbers: list[int], target: int) -> list[int]:
+        left = 0
+        right = len(numbers)-1
+        while left<right:
+            # 一定存在答案
+            if numbers[left]+numbers[right]>target:
+                right-=1
+            elif numbers[left]+numbers[right]<target:
+                left+=1
+            else:
+                # 注意样例的输出
+                return [left+1,right+1]
+# @lc code=end
+
