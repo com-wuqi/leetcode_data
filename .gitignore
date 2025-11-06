@@ -1,3 +1,4 @@
 /.vscode
 *pretest*.py
 *.pyd
+/fun

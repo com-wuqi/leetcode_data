@@ -20,6 +20,8 @@ class Solution:
 
             while sums + x > sum_nums and left <= right:
                 # left <= right 防一手indexError
+                # 补充: 因为过大所以移动 left 来缩小使其相等有风险
+                # , 1 <= nums[i] 才行, 若 nums[i]<=0 , 考虑 前缀和
                 sums -= nums[left]
                 left += 1
             if sums + x == sum_nums:
