@@ -67,6 +67,7 @@ class Solution:
                     l+=1
                     while (l<r) and nums[l] == nums[l-1]:
                         l+=1
+                    # 这里实现移动 i 直到 nums[i] 与前面不相等
                     
                     r-=1
                     while r>l and nums[r] == nums[r+1]:

@@ -1,4 +1,3 @@
-# @lc code=start
 from collections import defaultdict
 class Solution:
     def numberOfSubstrings(self, s: str) -> int:
