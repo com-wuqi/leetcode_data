@@ -19,12 +19,13 @@ class Solution:
             left = 0
             right = indxC -1
             while left<right:
-                # [[left],...,[right],[indxC]]
+                # [[left],...,[right],[indxC],...,...]
                 a = nums[left]
                 b = nums[right]
                 if a+b>c:
                     # 这里存在答案
                     # nums[left] 到 nums[right-1] 一定都合法
+                    # 因为后面的 nums[left] 一定大于前面的
                     ans+=right-left
                     # b = nums[right] 全部考虑完啦
                     right-=1
@@ -32,6 +33,7 @@ class Solution:
                     # 在 b = nums[right] 下，和仍然太小
                     left+=1
         return ans
+    
     def triangleNumber_2(self, nums: List[int]) -> int:
         nums.sort()
         ans = 0
@@ -41,12 +43,13 @@ class Solution:
             # 右端点: 1+1=2 (因为取不到)
             c = nums[idxC]
             if not(nums[idxC-1] + nums[idxC-2] > c):
+                # 当前 c 下，最大两值的和仍然不满足，移动
                 continue
 
             if nums[0]+nums[1]>c:
                 # c 已经是最小值了，再次右移动一定没有
                 # 当前c下，整个区间任取3个数均可
-                # ans+=c(idx+1)(3)
+                # ans+=c((idx+1)(3))
                 ans+=(idxC+1)(idxC)(idxC-1)/6
                 break # 再次右移动一定没有
 
